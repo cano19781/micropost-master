@@ -1,0 +1,133 @@
+<%= form_for(@trouble) do |f| %>
+  <% if @trouble.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trouble.errors.count, "error") %> prohibited this trouble from being saved:</h2>
+
+      <ul>
+      <% @trouble.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  
+<!-- Imagen o captura del ticket -->  
+<div class="row">
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar imagen o captura">Imagen o Captura</span>
+    <%= f.file_field :image %>
+      </label>
+    </div>
+
+
+  <form>
+  <fieldset>
+    <legend><h2>Crear Ticket</h2></legend>
+
+<!-- Estatus del ticket -->
+      <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor indicar estatus del caso">Ticket</span>
+  <%= f.radio_button :state, 'Abierto', :checked => true %>
+  <%= label :state, 'Abierto' %>
+  <%= f.radio_button :state, 'Cerrado' %>
+  <%= label :state, 'Cerrado' %>
+    </label>
+
+
+    <hr>
+
+<!-- Cliente del ticket -->
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar cliente">Cliente</span>
+    <%= select("trouble", "client_id", Client.find(:all).collect{|c| [c.name, c.id] }) %>
+      </label>
+    </div>
+
+ 
+ <!-- Titulo del ticket -->
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar titulo del problema o el requerimiento">Titulo del Problema</span>
+    <%= f.text_field :title %>
+      </label>
+    </div>
+
+  <!-- Problema del ticket -->
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor describir el problema o el requerimiento">Descripcion del Problema</span>
+    <%= f.text_area :text %>
+      </label>
+    </div>
+  
+ <!-- Importancia del ticket -->
+    <div class="large-4 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor indicar importancia del caso">Importancia</span>
+  <% severidad = {'-Seleccione-' => '-Seleccione-', 'Deseable' => 'Deseable', 'Necesario' => 'Necesario', 'Indispensable' => 'Indispensable',} %>
+    <%= f.select :severity,severidad %>
+     </label>
+    </div>
+  
+ <!-- Categoria del ticket -->
+    <div class="large-4 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor indicar categoria">Categoria</span>
+  <% categoria = {'-Seleccione-' => '-Seleccione-', 'Requerimiento' => 'Requerimiento', 'Soporte' => 'Soporte',} %>
+    <%= f.select :category,categoria %>
+    </label>
+  </div>
+
+  <!-- Usuario que crea el ticket --> 
+    <div class="large-12 columns">
+    <%= f.label :usuario %><br /> 
+    <%= f.select :user_id, options_for_select(@users) %> 
+  </div>
+
+
+<!-- Botones de guardar y atras del ticket -->
+  <div class="actions">
+  <%= f.submit 'Guardar', class: 'button tiny' %>
+    <%= link_to 'Atras', tickets_path, class: 'button tiny' %>
+    </div>
+
+
+   </fieldset>
+</form>
+<% end %>
+
+ </fieldset>
+</form>
+
+
+
+
+<!-- Pie de pagina con los links de retorno --> 
+<div class="icon-bar five-up" role="navigation">
+  
+    
+    <label id='itemlabel1'><%= link_to 'Home', root_path %></label>
+  </a>
+
+    
+    <label id='itemlabel2'><%= link_to 'Preguntas', faqs_path %></label>
+  </a>
+  
+    
+    <label id='itemlabel3'><%= link_to 'Nosotros', abouts_path %></label>
+  </a>
+  
+    
+    <label id='itemlabel4'><%= link_to 'Contactanos', contacts_path %></label>
+  </a>
+  
+</div>
+
+
+
+<!-- Pie de pagina con nombre de creador --> 
+
+<dl class="sub-nav">
+  <dt>Creado por:</dt>
+  <dd class="active"><a href="#">Rogger Herrera</a></dd>
+  <dd><a href="#">Banco San Juan S.A</a></dd>
+  <dd><a href="#">2019</a></dd>
+</dl>

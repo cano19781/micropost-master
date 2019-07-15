@@ -1,0 +1,43 @@
+<h1>posts</h1>
+
+
+ 
+
+
+<%= link_to 'Nuevo Post', new_post_path, class: 'button' %>
+
+<% @posts.each do |post| %>
+<hr>
+
+
+ <div class="row">
+ <div class="columns large-9 medium-6">
+     <blockquote>
+      <%= post.content %>
+      <cite><%= post.user.name %> - <em><%= time_ago_in_words(post.created_at) %> ago</em></cite>
+      </blockquote>
+   </div>
+   <div class="columns large-3 medium-6">
+   <ul class="inline-list">
+      <li><%= link_to 'Show', post %></li>
+      <li><%= link_to 'Edit', edit_post_path(post) %></li>
+      <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+
+  </div>
+  </div>
+
+  
+<% end %>
+
+
+
+<%= form_for @search do |f| %>   
+ <p>   
+<%= f.label :content_contains %>   
+<%= f.text_field :content_contains %>   
+</p>   
+<p class="button"><%= f.submit "Buscar" %> </p>   
+<% end %> 
+
+

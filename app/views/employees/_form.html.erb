@@ -1,0 +1,209 @@
+<%= form_for(@employee, :html => { :multipart => true }) do |f| %>
+
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<%
+=begin %>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.number_field :user %>
+  </div>
+<%
+=end %>
+
+
+
+
+<form>
+  <fieldset>
+    <legend><h2>Crear Empleado</h2></legend>
+
+   
+      <div class="field">
+    <%= f.label :Foto %><br />
+    <%= f.file_field :image %>
+  </div>
+
+
+  <div class="row">
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor escribir el nombre completo">Nombre Completo</span>
+    <%= f.text_field :nombres %>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="large-12 columns">
+     <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor escribir el apellido completo">Apellidos</span>
+    <%= f.text_field :apellidos %>
+    </label>
+  </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="large-6 columns">
+    <label>DNI
+    <%= f.text_field :ci %>
+    </label>
+  </div>
+  
+    <div class="large-6 columns">
+    <label>Cargo
+    <%= f.text_field :cargo %>
+    </label>
+  </div>
+  </div>
+ 
+  <div class="row">
+    <div class="large-5 columns">
+    <label>Numero Local
+    <%= f.text_field :telefono %>
+    </label>
+  </div>
+  
+  <div class="large-2 columns">
+    <label>Directo
+    <%= f.text_field :ext %>
+    </label>
+  </div>
+
+  <div class="large-5 columns">
+    <label>Numero Celular
+    <%= f.text_field :celular %>
+    </label>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+    <label>Correo
+    <%= f.text_field :correo %>
+    </label>
+  </div>
+  </div>
+
+
+
+
+
+
+<div class="row">
+    <div class="large-6 columns">
+     <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor colocar la sucursal">Sucursal de</span>
+    <%= f.select :sucursal, options_for_select([["-Seleccione-", "-Seleccione-"], ["GPSA", "GPSA"], ["BER", "BER"], ["BSC", "BSC"], ["BSJ", "BSJ"], ["BSF", "BSF"]]) %>
+    </label>
+  </div>
+ 
+
+
+
+    <div class="large-6 columns">
+     <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor colocar el area responsable">Area</span>
+    <%= f.select :departamento, options_for_select([["-Seleccione-", "-Seleccione-"], ["Bases de Datos", "Bases de Datos"], ["Sistemas", "Sistemas"], ["IT", "IT"], ["Operador", "Operador"], ["Programador", "Programador"]]) %>
+    </label>
+  </div>
+  </div>
+ 
+
+<ul>
+</ul>
+
+<div class="row">
+    <div class="large-12 columns">
+ <label>Encargado de:
+<label>IT
+<%= f.radio_button :encargado, "IT" %>
+<label>Sistemas
+<%= f.radio_button :encargado, "Sistemas" %>
+<label>GOA
+<%= f.radio_button :encargado, "GOA" %>
+<label>SFB
+<%= f.radio_button :encargado, "SFB" %>
+<label>Prisma
+<%= f.radio_button :encargado, "Prisma" %>
+<label>Tracking
+<%= f.radio_button :encargado, "Tracking" %>
+<label>Credencial
+<%= f.radio_button :encargado, "Credencial" %>
+<label>Link
+<%= f.radio_button :encargado, "Link" %>
+<label>BID
+<%= f.radio_button :encargado, "BID" %>
+<label>ARCOR
+<%= f.radio_button :encargado, "ARCOR" %>
+<label>QUALIA
+<%= f.radio_button :encargado, "QUALIA" %>
+  </label>
+  </div>
+  </div>
+
+
+<ul>
+</ul>
+
+   <div class="actions">
+
+    <%= f.submit 'Guardar', class: 'button tiny' %>
+    <%= link_to 'Atras', employees_path, class: 'button tiny' %>
+   
+    
+  </div>
+
+
+
+
+
+
+
+  </fieldset>
+</form>
+
+<% end %>
+
+
+<!-- Pie de pagina con los links de retorno --> 
+<div class="icon-bar five-up" role="navigation">
+  
+    
+    <label id='itemlabel1'><%= link_to 'Home', root_path %></label>
+  </a>
+
+    
+    <label id='itemlabel2'><%= link_to 'Preguntas', faqs_path %></label>
+  </a>
+  
+    
+    <label id='itemlabel3'><%= link_to 'Nosotros', abouts_path %></label>
+  </a>
+  
+    
+    <label id='itemlabel4'><%= link_to 'Contactanos', contacts_path %></label>
+  </a>
+  
+</div>
+
+
+
+
+<!-- Pie de pagina con nombre de creador --> 
+
+<dl class="sub-nav">
+  <dt>Creado por:</dt>
+  <dd class="active"><a href="#">Rogger Herrera</a></dd>
+  <dd><a href="#">Banco San Juan S.A</a></dd>
+  <dd><a href="#">2019</a></dd>
+</dl>

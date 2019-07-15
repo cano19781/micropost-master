@@ -1,0 +1,62 @@
+
+<ul class="small-block-grid-3">
+  <li><%= image_tag "empleado.jpeg" %></li>
+  <li><%= image_tag "empleado.jpeg" %></li>
+  <li><%= image_tag "empleado.jpeg" %></li>
+</ul>
+
+
+
+
+<h6>Buscar Empleado</h6>
+<%= form_tag({:controller => "employees", :action => "index"}, :method => :get) do %>
+
+    <%= text_field_tag "searchbox", params[:searchbox] %>
+
+    <%= submit_tag "Buscar", class: 'button tiny' %>
+
+<% end %>
+
+
+<ul class="inline-list">
+
+
+<li><h4><%= link_to 'Nuevo Empleado', new_employee_path %></h4></li>
+
+</ul>
+
+
+
+<% @employees.each do |employee| %>
+<hr>
+  <h2><%= link_to employee.nombres, employee %></h2>
+
+<div class="row">
+ <div class="columns large-9 medium-6">
+
+ 
+
+    <td><%= image_tag employee.image.url(:thumb) %></td>
+    <td><%= employee.encargado %></td> => <td><%= employee.sucursal %></td>
+   </div>
+    
+    <div class="columns large-3 medium-6">
+    
+    <ul class="inline-list">
+    
+    <li><%= link_to 'Editar', edit_employee_path(employee) %></li>
+    <li><%= link_to 'Eliminar', employee, method: :delete, data: { confirm: 'Desea eliminar este empleado?' } %></li>
+  </ul>
+
+</div>
+</div>
+
+
+<% end %>
+
+
+<br/>
+
+
+
+

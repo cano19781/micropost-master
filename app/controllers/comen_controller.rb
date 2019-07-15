@@ -1,0 +1,2 @@
+class ComenController < ApplicationController
+end

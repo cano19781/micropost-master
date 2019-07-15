@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Micropost-BSJ" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    
+
+  </head>
+
+  <body>
+
+<nav class="top-bar" data-topbar> 
+<ul class="title-area">
+ <li class="name"> 
+<h1>
+<%= link_to 'Micropost-BSJ', root_path %>
+</h1>
+ </li> 
+<!-- Si se remueve la clase menu-icon en los telefonos celulares no sale el menu --> 
+<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> 
+</ul> 
+<section class="top-bar-section"> 
+
+
+ <!-- Navegador derecho --> 
+ <ul class="left"> 
+ <li class="divider"></li>
+ <li>
+ <%= link_to 'Posts', posts_path %>
+ </li>
+
+ <li>
+ <%= link_to 'Usuarios', users_path %> 
+ </li>
+
+ <li>
+ <%= link_to 'Aportes', articles_path %>
+ </li>
+
+ <li>
+ <%= link_to 'Empleados', works_path %>
+ </li>
+
+<!--
+  <li>
+ <%= link_to 'Peliculas', movies_path %>
+ </li>
+--> 
+
+
+  <li>
+ <%= link_to 'Sistemas', clients_path %>
+ </li>
+
+
+
+ <li>
+ <%= link_to 'Tickets', tickets_path %>
+ </li>
+
+</ul>
+    
+   
+<%
+=begin %>
+
+    <!-- Combo de ticket solo sera utilizado si se necesita lista desplegable --> 
+     
+      <li class="has-dropdown">
+        <a href="#">Tickets</a>
+        <ul class="dropdown">
+          <li><a href="#"><%= link_to 'Crear Tickets', new_trouble_path %></a></li>
+          <li><a href="#"><%= link_to 'Tickets', tickets_path %></a></li>
+          <li><a href="#"><%= link_to 'Abiertos', abierto_path("abierto") %></a></li>
+          <li><a href="#"><%= link_to 'Cerrados', cerrado_path("cerrado") %></a></li>
+        </ul>
+      </li>
+    </ul>
+
+<% 
+=end %>
+
+
+
+
+
+  <!-- Navegador izquierdo --> 
+ <ul class="right"> 
+ <li class="divider"></li> 
+
+  <li>
+ <%= link_to 'Contactanos', contacts_path %>
+ </li>
+
+<!--
+   <li>
+ <%= link_to 'Nosotros', abouts_path %>
+ </li>
+
+-->
+<!--
+
+ <li>
+ <%= link_to 'Preguntas', faqs_path %>
+ </li>
+
+-->
+         
+
+ <% if user_signed_in? %> 
+  
+ <li> 
+ <%= link_to current_user.name, edit_user_registration_path %> 
+ </li> 
+
+ <li> 
+ <%= link_to 'Salir', destroy_user_session_path, method: :delete %> 
+ </li> 
+ 
+ <% else %> 
+ 
+ <li class="active"> 
+ <%= link_to 'Registrarse', new_user_registration_path %> 
+ </li> 
+
+<li> 
+ <%= link_to 'Entrar', new_user_session_path %> 
+ </li> 
+ <% end %> 
+  
+  </ul>
+
+
+
+
+
+
+  
+
+   </section>
+  </nav>
+
+  <div class="row">
+  <div class="columns large-12">
+  <br>
+<% flash.each do |type, message| %>
+  <div data-alert class="alert-box radius <%= flass_class type %>">
+  <%= message %>
+  <a href="#" class="close">&times;</a>
+</div>
+<% end %> 
+
+<%= yield %>
+
+   
+    </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
+

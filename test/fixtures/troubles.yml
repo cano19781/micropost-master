@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client_id: 1
+  title: MyString
+  text: MyText
+  user_id: 1
+  severity: MyString
+  state: MyString
+  category: MyString
+
+two:
+  client_id: 1
+  title: MyString
+  text: MyText
+  user_id: 1
+  severity: MyString
+  state: MyString
+  category: MyString

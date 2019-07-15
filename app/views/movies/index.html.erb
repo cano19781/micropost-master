@@ -1,0 +1,100 @@
+<!-- 
+Crear peliculas -->
+
+<ul class="inline-list">
+<li><h4><%= link_to 'Crear Pelicula', new_movie_path %></h4></li> 
+</ul>
+
+
+<!-- 
+Imagen principal que se mueve -->
+
+<ul class="example-orbit-content" data-orbit>
+  <li data-orbit-slide="headline-1">
+    <div>
+     
+      <h3><%= image_tag "movie.jpg" %></h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-2">
+    <div>
+      
+      <h3><%= image_tag "movie.jpg" %></h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-3">
+    <div>
+      
+      <h3><%= image_tag "movie.jpg" %></h3>
+    </div>
+  </li>
+</ul>
+
+<!-- 
+<h1>Sinopsis</h1> -->
+
+<!-- 
+
+<div class="flex-video widescreen vimeo">
+  <iframe src="http://player.vimeo.com/video/114885009" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div> 
+
+-->
+
+<!-- Busqueda -->
+
+<div class="large-3 columns">
+<%= form_for @search do |f| %>
+  
+<%= f.submit 'Buscar', class: 'button' %><%= f.text_field :title_contains %>   
+<% end %> 
+
+
+    
+
+
+
+
+<hr>
+<table>
+  <tr>
+    <th>Imagen</th>
+    <th>Pelicula</th>
+    <th>Genero</th>
+  
+    
+    
+    <th>Año</th>
+    <th>Duracion</th>
+    <th>Director</th>
+   
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+  <td><%= image_tag movie.image.url(:thumb) %></td>
+    <td><%= movie.title %></td>
+    
+    <td><%= movie.genre %></td>
+    
+    
+    
+    <td><%= movie.year %></td>
+    <td><%= movie.duration %></td>
+    <td><%= movie.director %></td>
+    
+    <td><%= link_to 'Show', movie %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Movie', new_movie_path %>
+
+

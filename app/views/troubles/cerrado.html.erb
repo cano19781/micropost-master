@@ -1,0 +1,45 @@
+<h3><%=@numero %>, Tickets Cerrados </h3>
+
+<table class="table table-hover">
+	<% if !@troubles.blank? %>
+
+<thead>
+	<th># ticket</th>
+	<th> Cliente </th>
+	<th> Titulo</th>
+	<th> Fecha</th>
+	<th> Categoria</th>
+	<th>acciones</th>
+</thead>
+  <% for item in @troubles %>
+    <tbody>
+    	<tr>
+    	<td><%= link_to item.id, item %></td>
+    	<td><%= item.client.name%></td>
+    	<td><%= item.title %></td>
+    	<td><%= item.created_at.strftime("%d/%m/%y- %H:%M") %></td>
+    	<td><%= item.severity %></td>
+    	<td>
+    		
+    	<%= link_to 'Editar', edit_trouble_path(item) %> | 
+    	<%= link_to 'Eliminar', item, method: :delete, data: { confirm: 'Desea eliminar este ticket?' } %>
+
+
+    	</td>
+    	</tr>
+
+    </tbody>
+  <% end %>
+<% else %>
+  
+<% end %>
+
+
+
+</table>
+
+<!-- Atras -->
+<%= link_to(image_tag("atras-32.png"), tickets_path) %>
+<%= link_to 'Atras', tickets_path %>
+
+<%= will_paginate @troubles %>

@@ -1,0 +1,17 @@
+
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @post.user.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post), class: 'button' %> |
+
+
+

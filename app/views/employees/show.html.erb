@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @employee.user %>
+</p>
+
+
+
+<% if @employee.image? %>
+<%= image_tag @employee.image.url(:thumb) %>
+<br />
+<%= link_to @employee.image.url, @employee.image.url %>
+<% end %>
+
+<p>
+  <b>Foto:</b>
+  <%= @employee.foto %>
+</p>
+
+<p>
+  <b>Nombres:</b>
+  <%= @employee.nombres %>
+</p>
+
+<p>
+  <b>Apellidos:</b>
+  <%= @employee.apellidos %>
+</p>
+
+<p>
+  <b>Ci:</b>
+  <%= @employee.ci %>
+</p>
+
+<p>
+  <b>Cargo:</b>
+  <%= @employee.cargo %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @employee.telefono %>
+</p>
+
+<p>
+  <b>Ext:</b>
+  <%= @employee.ext %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%= @employee.celular %>
+</p>
+
+<p>
+  <b>Correo:</b>
+  <%= @employee.correo %>
+</p>
+
+<p>
+  <b>Sucursal:</b>
+  <%= @employee.sucursal %>
+</p>
+
+<p>
+  <b>Departamento:</b>
+  <%= @employee.departamento %>
+</p>
+
+<p>
+  <b>Encargado de:</b>
+  <%= @employee.encargado %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  sinop: MyText
+  genre: MyString
+  rating: 1
+  production: MyString
+  user_id: 1
+  year: 1
+  duration: MyString
+  director: MyString
+  cast: MyString
+
+two:
+  title: MyString
+  sinop: MyText
+  genre: MyString
+  rating: 1
+  production: MyString
+  user_id: 1
+  year: 1
+  duration: MyString
+  director: MyString
+  cast: MyString

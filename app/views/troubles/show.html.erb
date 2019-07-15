@@ -1,0 +1,90 @@
+<!-- Editar -->
+<%= link_to 'Editar', edit_trouble_path(@trouble) %>
+<%= image_tag "editar-32.png" %>
+<hr>
+
+<% if @trouble.image? %>
+<%= image_tag @trouble.image.url(:thumb) %>
+<br />
+<%= link_to @trouble.image.url, @trouble.image.url %>
+<% end %>
+
+<p>
+  <strong>Titulo del problema o requerimiento:</strong>
+  <h5><strong><%= @trouble.title %></strong></h5>
+</p>
+ 
+<p>
+  <strong>Descripcion del problema o requerimiento:</strong>
+  <h5><strong><%= @trouble.text %></strong></h5>
+</p>
+
+<p>
+<%= @trouble.created_at.strftime("%b %d %Y a las %I:%M %p") %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @trouble.user.name %>
+</p>
+
+<p>
+  <b>Importancia:</b>
+  <%= @trouble.severity %>
+</p>
+
+<p>
+  <b>Estatus:</b>
+  <%= @trouble.state %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @trouble.category %>
+</p>
+
+
+<!-- Atras -->
+<%= link_to(image_tag("atras-32.png"), troubles_path) %>
+<%= link_to 'Atras', troubles_path %>
+
+
+
+<hr>
+
+
+ <!-- Despliega el modals de informacion importante -->
+<a href="#" data-reveal-id="firstModal" class="radius button">Soluciones Aportadas</a>
+
+
+<!-- Inicio del Modal -->
+<div id="firstModal" class="reveal-modal" data-reveal>
+
+
+
+  
+<h3>Soluciones aportadas</h3>
+<%= render @trouble.coments %>
+
+
+
+  <p><a href="#" data-reveal-id="secondModal" class="secondary button">Aportar solucion...</a></p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="secondModal" class="reveal-modal" data-reveal>
+
+
+
+  
+  <h2>Agregar solucion:</h2>
+
+<%= render 'coments/form' %>
+
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+ 
+<!-- Fin del Modal -->
+

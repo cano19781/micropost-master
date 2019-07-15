@@ -1,0 +1,16 @@
+<%= form_for([@article, @article.comments.build]) do |f| %>
+
+
+
+
+    <%= f.label :comentario %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :texto %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Guardar', class: 'button' %>
+  </p>
+<% end %>

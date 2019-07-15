@@ -1,0 +1,42 @@
+<h1>Sistemas</h1>
+
+<table>
+  <tr>
+    <th>Sistema</th>
+    <th>Ubicacion</th>
+<!--
+    <th>Telefono</th>
+    <th>Email</th>
+-->
+    <!-- <th>Usuario</th> -->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+
+<% @clients.each do |client| %>
+  <tr>
+    <td><%= client.name %></td>
+    <td><%= client.address %></td>
+
+    <!-- <td><%= client.phone %></td>   
+    <td><%= client.email %></td>
+    <!-- <td><%= client.user_id %></td> -->
+
+
+    <td><%= link_to 'Mostrar', client %></td>
+    <td><%= link_to 'Editar', edit_client_path(client) %></td>
+    <td><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Desea eliminar este sistema?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<h3><%= link_to 'Nuevo sistema', new_client_path %></h3>
+
+
+

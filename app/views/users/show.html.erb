@@ -1,0 +1,25 @@
+
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @user.location %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @user.description %>
+</p>
+
+
+<%= link_to 'Editar', edit_user_path(@user), class: 'button' %> |
+

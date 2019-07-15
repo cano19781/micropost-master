@@ -1,0 +1,33 @@
+<p>
+  <h2><strong>Titulo del Aporte:</strong></h2>
+  <h3><%= @article.title %></h3>
+</p>
+ 
+<p>
+  <strong>Texto del Aporte:</strong>
+  <h5><strong><%= @article.text %></strong></h5>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @article.user.name %>
+</p>
+ 
+<h3>Comentarios</h3>
+<%= render @article.comments %>
+ 
+<h3>Agregar un Comentario:</h3>
+<%= render "comments/form" %>
+ 
+
+
+<p>
+  <% if can? :update, @article %>
+    <%= link_to "Editar", edit_article_path(@article) %> |
+  <% end %>
+  <% if can? :destroy, @article %>
+    <%= link_to "Eliminar", @article, :method => :delete, :confirm => "Desea Eliminar Aporte?" %> |
+  <% end %>
+  <%= link_to "Atras", articles_path %>
+</p>
+

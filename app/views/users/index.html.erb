@@ -1,0 +1,34 @@
+<h1>usuarios</h1>
+
+<%= link_to 'Nuevo Usuario', new_user_path, class: 'button' %>
+<%= @articles_count %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Location</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.location %></td>
+    <td><%= user.description %></td>
+    <td><%= link_to 'Mostrar', user %></td>
+    <td><%= link_to 'Editar', edit_user_path(user) %></td>
+    <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Desea Eliminar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+

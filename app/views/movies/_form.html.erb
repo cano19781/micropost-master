@@ -1,0 +1,179 @@
+<%= form_for(@movie, :html => { :multipart => true }) do |f| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<!-- Poster de la pelicula --> 
+
+<div class="row">
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar poster de la pelicula">Poster de la pelicula</span>
+    <%= f.file_field :image %>
+      </label>
+    </div>
+
+
+    <form>
+  <fieldset>
+    <legend><h2>Crear Ticket</h2></legend>
+  
+
+<!-- Titulo de la pelicula --> 
+
+
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar el titulo de la pelicula">Titulo de la pelicula</span>
+    <%= f.text_field :title %>
+      </label>
+    </div>
+
+
+
+<!-- Sinopsis de la pelicula --> 
+
+    <div class="row">
+    <div class="large-12 columns">
+  <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar la sinopsis de la pelicula">Sinopsis de la pelicula</span> 
+    <%= f.text_area :sinop, :cols => "30", :rows => "10" %>
+    </label>
+ </div>
+
+
+<!-- Genero de la pelicula --> 
+
+ 
+<div class="large-6 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar el genero de la pelicula">Genero</span>
+  <% genero = {'-Seleccione-' => '-Seleccione-', 'Comedia' => 'Comedia', 'Accion' => 'Accion', 'Terror' => 'Terror',} %>
+    <%= f.select :genre,genero %>
+     </label>
+    </div>
+
+
+<!-- Rating de la pelicula --> 
+
+
+    <div class="large-6 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar el rating de la pelicula">Rating de la pelicula</span>
+    <%= f.number_field :rating %>
+      </label>
+    </div>
+
+
+<!-- Productora de la pelicula --> 
+
+
+    <div class="large-6 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar la productora de la pelicula">Productora de la pelicula</span>
+    <%= f.text_field :production %>
+      </label>
+    </div>
+  
+
+<!-- Año de la pelicula --> 
+
+
+    <div class="large-6 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar el año de la pelicula">Año de la pelicula</span>
+    <%= f.number_field :year %>
+      </label>
+    </div>
+
+
+<!-- Duracion de la pelicula --> 
+
+
+    <div class="large-6 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar la duracion de la pelicula">Duracion de la pelicula</span>
+    <%= f.text_field :duration %>
+      </label>
+    </div>
+  
+  
+<!-- Director de la pelicula --> 
+
+
+    <div class="large-6 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar el director de la pelicula">Director de la pelicula</span>
+    <%= f.text_field :director %>
+      </label>
+    </div>  
+  
+
+<!-- Reparto de la pelicula --> 
+
+
+    <div class="large-12 columns">
+    <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Colocar el reparto de la pelicula">Reparto de la pelicula</span>
+    <%= f.text_field :cast %>
+      </label>
+    </div>
+
+
+<!-- Campo para definir usuario -->
+
+<%
+=begin %>
+<div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+<%
+=end %>
+
+
+ <div class="actions">
+  <%= f.submit 'Guardar', class: 'button tiny' %>
+    <%= link_to 'Atras', movies_path, class: 'button tiny' %>
+    </div>
+
+
+ </fieldset>
+</form>
+<% end %>
+
+ </fieldset>
+</form>
+
+
+
+<!-- Pie de pagina con los links de retorno --> 
+<div class="icon-bar five-up" role="navigation">
+  
+    
+    <label id='itemlabel1'><%= link_to 'Home', root_path %></label>
+  </a>
+
+    
+    <label id='itemlabel2'><%= link_to 'Preguntas', faqs_path %></label>
+  </a>
+  
+    
+    <label id='itemlabel3'><%= link_to 'Nosotros', abouts_path %></label>
+  </a>
+  
+    
+    <label id='itemlabel4'><%= link_to 'Contactanos', contacts_path %></label>
+  </a>
+  
+</div>
+
+
+
+<!-- Pie de pagina con nombre de creador --> 
+
+<dl class="sub-nav">
+  <dt>Creado por:</dt>
+  <dd class="active"><a href="#">Rogger Herrera</a></dd>
+  <dd><a href="#">Propacine S.R.L</a></dd>
+  <dd><a href="#">2014</a></dd>
+</dl>
