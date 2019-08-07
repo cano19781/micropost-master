@@ -1,4 +1,15 @@
-<%= form_for(@employee, :html => { :multipart => true }) do |f| %>
+<%= form_for(@employee, :html => { :multiple => true }) do |f| %>
+
+
+
+
+
+
+
+
+
+
+
 
   <% if @employee.errors.any? %>
     <div id="error_explanation">
@@ -53,15 +64,20 @@
   </div>
 
 
-
+<%
+=begin %>
+Cedula o DNI
   <div class="row">
     <div class="large-6 columns">
     <label>DNI
     <%= f.text_field :ci %>
     </label>
   </div>
+<%
+=end %>
   
-    <div class="large-6 columns">
+    <div class="row">
+    <div class="large-12 columns">
     <label>Cargo
     <%= f.text_field :cargo %>
     </label>
@@ -117,43 +133,56 @@
     </label>
   </div>
   </div>
- 
+
+
+
 
 <ul>
 </ul>
 
-<div class="row">
-    <div class="large-12 columns">
- <label>Encargado de:
-<label>IT
-<%= f.radio_button :encargado, "IT" %>
-<label>Sistemas
-<%= f.radio_button :encargado, "Sistemas" %>
-<label>GOA
-<%= f.radio_button :encargado, "GOA" %>
-<label>SFB
-<%= f.radio_button :encargado, "SFB" %>
-<label>Prisma
-<%= f.radio_button :encargado, "Prisma" %>
-<label>Tracking
-<%= f.radio_button :encargado, "Tracking" %>
-<label>Credencial
-<%= f.radio_button :encargado, "Credencial" %>
-<label>Link
-<%= f.radio_button :encargado, "Link" %>
-<label>BID
-<%= f.radio_button :encargado, "BID" %>
-<label>ARCOR
-<%= f.radio_button :encargado, "ARCOR" %>
-<label>QUALIA
-<%= f.radio_button :encargado, "QUALIA" %>
+  <div class="row">
+    <div class="large-20 columns">
+
+ <label>Responsable de:
+
+
+<%= label_tag 'encargado_Prisma', 'Prisma' %>
+<%= check_box_tag 'employee[encargado][]', 'Prisma', checked('Prisma'), id: 'encargado_Prisma' %>
+
+<%= label_tag 'encargado_Link', 'Link' %>
+<%= check_box_tag 'employee[encargado][]', 'Link', checked('Link'), id: 'encargado_Link' %>
+
+<%= label_tag 'encargado_GOA', 'GOA' %>
+<%= check_box_tag 'employee[encargado][]', 'GOA', checked('GOA'), id: 'encargado_GOA' %>
+
+<%= label_tag 'encargado_Tracking', 'Tracking' %>
+<%= check_box_tag 'employee[encargado][]', 'Tracking', checked('Tracking'), id: 'encargado_Tracking' %>
+
+<%= label_tag 'encargado_Credencial', 'Credencial' %>
+<%= check_box_tag 'employee[encargado][]', 'Credencial', checked('Credencial'), id: 'encargado_Credencial' %>
+
+<%= label_tag 'encargado_QUALIA', 'QUALIA' %>
+<%= check_box_tag 'employee[encargado][]', 'QUALIA', checked('QUALIA'), id: 'encargado_QUALIA' %>
+
+<%= label_tag 'encargado_SFB', 'SFB' %>
+<%= check_box_tag 'employee[encargado][]', 'SFB', checked('SFB'), id: 'encargado_SFB' %>
+
+<%= label_tag 'encargado_Engage', 'Engage' %>
+<%= check_box_tag 'employee[encargado][]', 'Engage', checked('Engage'), id: 'encargado_Engage' %>
+
+<%= label_tag 'encargado_Bid', 'Bid' %>
+<%= check_box_tag 'employee[encargado][]', 'Bid', checked('Bid'), id: 'encargado_Bid' %>
+
+<%= label_tag 'encargado_Sancor', 'Sancor' %>
+<%= check_box_tag 'employee[encargado][]', 'Sancor', checked('Sancor'), id: 'encargado_Sancor' %>
+
   </label>
   </div>
   </div>
 
-
 <ul>
 </ul>
+
 
    <div class="actions">
 

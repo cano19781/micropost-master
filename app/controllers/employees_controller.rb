@@ -91,6 +91,15 @@ class EmployeesController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def employee_params
-      params.require(:employee).permit(:apellidos, :cargo, :encargado, :celular, :ci, :correo, :departamento, :ext, :foto, :nombres, :sucursal, :telefono, :user, :image)
+      params.require(:employee).permit(:apellidos, :cargo, :celular, :ci, :correo, :departamento, :ext, :foto, :nombres, :sucursal, :telefono, :user, :image, :encargado => [])
 end
 end
+  
+      
+
+      
+
+
+
+
+

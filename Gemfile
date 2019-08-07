@@ -1,6 +1,6 @@
 #rvm use 2.3.8 --default Esta es la version de Ruby 
 #gem 'rails', '3.2.17' Esta es la version de Rails
-
+gem 'simple_form'
 source 'https://rubygems.org'
 #gem 'mysql2'
 gem 'rails', '3.2.17'
@@ -9,7 +9,7 @@ gem 'pg', '~> 0.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'chartkick'
+#gem 'chartkick'
 gem 'devise'
 gem "paperclip"
 gem 'cancan'

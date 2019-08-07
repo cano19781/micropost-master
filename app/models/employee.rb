@@ -5,7 +5,9 @@ class Employee < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 
-
+#before_save do
+  #self.encargado.gsub!(/[\[\]\"]/, "") if attribute_present?("encargado")
+#end
 
 
 
@@ -26,6 +28,8 @@ def self.search(search)
 
 end
 end
+
+
 
 
 

@@ -1,14 +1,13 @@
-
-<ul class="small-block-grid-3">
-  <li><%= image_tag "empleado.jpeg" %></li>
-  <li><%= image_tag "empleado.jpeg" %></li>
-  <li><%= image_tag "empleado.jpeg" %></li>
+<ul class="inline-list">
+<right><h4><%= link_to 'Nuevo Empleado', new_employee_path %></h4></right>
 </ul>
 
+<%= image_tag "empleado.png" %>
 
+<ul>
 
+</ul>
 
-<h6>Buscar Empleado</h6>
 <%= form_tag({:controller => "employees", :action => "index"}, :method => :get) do %>
 
     <%= text_field_tag "searchbox", params[:searchbox] %>
@@ -18,18 +17,13 @@
 <% end %>
 
 
-<ul class="inline-list">
 
-
-<li><h4><%= link_to 'Nuevo Empleado', new_employee_path %></h4></li>
-
-</ul>
 
 
 
 <% @employees.each do |employee| %>
 <hr>
-  <h2><%= link_to employee.nombres, employee %></h2>
+  <h3><%= link_to employee.nombres, employee %><td> <%= link_to employee.apellidos, employee %></td></h3>
 
 <div class="row">
  <div class="columns large-9 medium-6">
@@ -37,8 +31,11 @@
  
 
     <td><%= image_tag employee.image.url(:thumb) %></td>
-    <td><%= employee.encargado %></td> => <td><%= employee.sucursal %></td>
+    <td><%= employee.encargado %></td><td>  
+    <td><%= link_to employee.sucursal, employee %></td> 
    </div>
+
+
     
     <div class="columns large-3 medium-6">
     
@@ -56,6 +53,45 @@
 
 
 <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

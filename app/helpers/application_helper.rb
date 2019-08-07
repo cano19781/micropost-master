@@ -8,5 +8,6 @@ module ApplicationHelper
 		else "info"
 		end
 	end
+
 end
 

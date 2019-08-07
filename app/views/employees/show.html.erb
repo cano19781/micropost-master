@@ -7,6 +7,8 @@
 
 
 
+
+
 <% if @employee.image? %>
 <%= image_tag @employee.image.url(:thumb) %>
 <br />
@@ -70,8 +72,12 @@
 
 <p>
   <b>Encargado de:</b>
-  <%= @employee.encargado %>
+  <%= @employee.encargado.inspect %>
 </p>
+
+
+
+
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
